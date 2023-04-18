@@ -1,10 +1,450 @@
 {
 	"info": {
-		"_postman_id": "a1bb674e-b75b-47ee-9ed2-35a1910f39dd",
+		"_postman_id": "8196f372-86d8-464c-81d8-85bebf21e6bd",
 		"name": "airline-ecommerce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Flight Recommendation",
+			"item": [
+				{
+					"name": "Create Recommendation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\":\"BLR\",\r\n    \"destination\":\"DEL\",\r\n    \"departureTime\": \"23:25:00\",\r\n    \"arrivalTime\": \"23:59:00\",\r\n    \"airlineCode\": \"AI\",\r\n    \"flightNo\": \"323\",\r\n    \"amountPerPax\":\"4500\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/recommendations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"recommendations"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Add seats to flight",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"flightNo\":\"AI323\",\r\n    \"day1\":\"5\",\r\n    \"day2\":\"5\",\r\n    \"day3\":\"5\",\r\n    \"day4\":\"5\",\r\n    \"day5\":\"5\",\r\n    \"day6\":\"5\",\r\n    \"day7\":\"5\",\r\n    \"day8\":\"5\",\r\n    \"day9\":\"5\",\r\n    \"day10\":\"5\",\r\n    \"day11\":\"5\",\r\n    \"day12\":\"5\",\r\n    \"day13\":\"5\",\r\n    \"day14\":\"5\",\r\n    \"day15\":\"5\",\r\n    \"day16\":\"5\",\r\n    \"day17\":\"5\",\r\n    \"day18\":\"5\",\r\n    \"day19\":\"5\",\r\n    \"day20\":\"5\",\r\n    \"day21\":\"5\",\r\n    \"day22\":\"5\",\r\n    \"day23\":\"5\",\r\n    \"day24\":\"5\",\r\n    \"day25\":\"5\",\r\n    \"day26\":\"5\",\r\n    \"day27\":\"5\",\r\n    \"day28\":\"5\",\r\n    \"day29\":\"5\",\r\n    \"day30\":\"5\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/recommendations/add-seats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"recommendations",
+								"add-seats"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recommendations",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/recommendations?origin=DEL&destination=BLR&date=2023-04-28&seats=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "DEL"
+								},
+								{
+									"key": "destination",
+									"value": "BLR"
+								},
+								{
+									"key": "date",
+									"value": "2023-04-28"
+								},
+								{
+									"key": "seats",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recommendation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rId\": 1231,\r\n    \"origin\":\"YUL\",\r\n    \"destination\":\"YYZ\",\r\n    \"departure\": \"asdad\",\r\n    \"arrival\": \"asdad\",\r\n    \"flightNo\": \"asda\",\r\n    \"airlineCode\": \"asda\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/recommendations/2?date=2023-04-23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"recommendations",
+								"2"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-04-23",
+									"description": "Optional parameter"
+								}
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Cart Content",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/cart/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"cart",
+								"1"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cart",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recommendationId\":\"16\",\r\n    \"travellerCount\":\"1\",\r\n    \"phoneNumber\": \"9876543210\",\r\n    \"emailId\": \"test@test.com\",\r\n    \"date\":\"2023-04-22\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"cart"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Passengers",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\":\"Spider\",\r\n        \"lastName\":\"Man\",\r\n        \"gender\":\"M\"\r\n    }\r\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/cart/Sw3zmag57rk4UFrVq7Dw39P5wHSdeoNOCpn1RFaOslalfN29UP2LAUMJ2QfCTtol/passengerDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"cart",
+								"Sw3zmag57rk4UFrVq7Dw39P5wHSdeoNOCpn1RFaOslalfN29UP2LAUMJ2QfCTtol",
+								"passengerDetails"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Confirmation",
+			"item": [
+				{
+					"name": "Get Payment Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/confirmation/payment/GnBnCiqCqr1O9Z3M1OB2CdBHgHP4Z6jte5G8wG975UWTGRGu45USF6ct3s1cKHUJ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"confirmation",
+								"payment",
+								"GnBnCiqCqr1O9Z3M1OB2CdBHgHP4Z6jte5G8wG975UWTGRGu45USF6ct3s1cKHUJ"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Pnr",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/confirmation/JLJLPT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"confirmation",
+								"JLJLPT"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Payment",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cartId\":\"t2RrgiLgfB686d6AifnI32Nw3DUmCZEqOkLYy3gyqGcap6tzcP6CoZw707UfX6Kh\",\r\n    \"paymentDetails\" :{\r\n        \"address\":\"101 Road 10\",\r\n        \"city\":\"Delhi\",\r\n        \"state\":\"Delhi\",\r\n        \"country\":\"India\",\r\n        \"cardType\":\"Credit Card\",\r\n        \"cardNumber\":\"4012999999999999\",\r\n        \"cvv\":\"123\",\r\n        \"expiry\":\"12/27\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/confirmation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"confirmation"
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cancellation",
+			"item": [
+				{
+					"name": "Cancel PNR",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/airline-ecommerce/cancellation?pnr=GX9GGF&lastName=Junior",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"airline-ecommerce",
+								"cancellation"
+							],
+							"query": [
+								{
+									"key": "pnr",
+									"value": "GX9GGF"
+								},
+								{
+									"key": "lastName",
+									"value": "Junior"
+								}
+							]
+						},
+						"description": "Add a new user"
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "http://localhost:8080/api/users",
 			"protocolProfileBehavior": {
